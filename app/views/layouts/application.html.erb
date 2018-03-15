@@ -9,10 +9,16 @@
   </head>
 
   <body>
+      <nav class="navbar">
+        <a class="navbar-brand" class="navbar-left"><%= image_tag "nubod-gray.png", class:"logo" %></a>
+      </nav>
+
+
+
+  <%= yield %>
+  </body>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-  <%= yield %>
-  </body>
 </html>

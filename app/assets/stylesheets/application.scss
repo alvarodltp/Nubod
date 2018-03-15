@@ -12,3 +12,34 @@
  *
  */
 @import "bootstrap";
+
+body{
+  background-color: lightgray;
+}
+
+html{
+  width:100%;
+  height:100%;
+}
+
+.navbar{
+   background-color: white;
+    height: 70px;
+}
+
+.logo{
+  width: 250px;
+  margin-top: 0px;
+}
+
+.main-banner{
+  position: relative;
+  height: 600px;
+  margin-bottom: 0px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url(header-image.jpeg);
+
+}
