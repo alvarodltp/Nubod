@@ -24,7 +24,18 @@
     <nav class="navbar static-top">
       <div class="container">
         <a class="navbar-brand" class="navbar-left"><%= image_tag "logoAF.PNG", width: 150 %></a>
-        <a class="btn btn-primary" href="#">Sign In</a>
+        <div class="btn-group show">
+          <% if current_user %>
+              <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a> Welcome, <%= current_user.name %></a>
+              </button>
+              <div class="dropdown-menu dropdown-toggle-split">
+                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+              <%= link_to "Log In ", new_user_session_path %>
+          <% end %>
+        </div>
       </div>
     </nav>
 

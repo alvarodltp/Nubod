@@ -47,5 +47,33 @@ footer.footer {
   padding-bottom: 2rem;
 }
 
+.card-block{
+  padding-left: 10px;
+  padding-right: 10px,
+}
+
+/*for any of the classes that are nested inside login > */
+
+.login > .card{
+  width: 22rem;
+  margin: 0 auto;
+  float: none;
+}
+
+.signup > .card{
+  width: 22rem;
+  margin: 0 auto;
+  float: none;
+}
+
+.alert{
+  text-align: center;
+}
+
+.notice{
+  text-align: center;
+}
+
+
 
 
