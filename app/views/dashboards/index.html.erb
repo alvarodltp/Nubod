@@ -1,0 +1,25 @@
+<div class="container" id="dashboard-container">
+  <div class="btn btn-primary btn-block" id="create-new-button">
+    <%= link_to 'Create New', new_dashboard_path, class: 'create-new-text' %>
+  </div>
+
+  <div class="card-body" id="dashboard-card">
+    <% unless @dashboards.blank? %>
+        <% @dashboards.each do |dashboard| %>
+
+            <div class="container" id="dashboard-container">
+              <p class="card-title"><%= dashboard.title %></p>
+              <p class="date"><%= time_ago_in_words(dashboard.created_at) %> ago </p>
+              <p class="text"><%= sanitize(dashboard.text[0, 270]) %>...</p>
+              <div class="buttons">
+                <%= link_to 'Show', dashboard_path(dashboard), class: 'btn btn-primary btn-sm' %>
+                <%= link_to 'Edit', edit_dashboard_path(dashboard), class:'btn btn-success btn-sm' %>
+                <%= link_to 'Delete', dashboard_path(dashboard),
+                            method: :delete,
+                            data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm' %>
+              </div>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container" id="show-dashboard">
+  <h1><%= @dashboard.title %></h1>
+
+  <%= @dashboard.document.url %>
+
+  <p><%= @dashboard.text %></p>
+
+
+  <%= link_to 'My Program', dashboards_path %>
+  <%= link_to 'Edit', edit_dashboard_path(@dashboard)%>
+  <%= link_to 'Trash It', dashboard_path(@dashboard), method: :delete, data: { confirm: "Are you sure?" } %>
+
+</div>

@@ -1,4 +1,6 @@
-class DashboardController < ApplicationController
+class DashboardsController < ApplicationController
+
+  before_action :find_dashboard, only: [:show, :edit, :update, :destroy]
 
   def index
     @dashboards = Dashboard.where(user_id: current_user)
@@ -9,7 +11,7 @@ class DashboardController < ApplicationController
   end
 
   def new
-    @dashboard = current_user.docs.build
+    @dashboard = current_user.dashboards.build
   end
 
   def edit
@@ -17,7 +19,7 @@ class DashboardController < ApplicationController
   end
 
   def create
-    @dashboard = current_user.docs.build(doc_params)
+    @dashboard = current_user.dashboards.create(dashboard_params)
 
     if @dashboard.save
       redirect_to @dashboard
@@ -28,7 +30,7 @@ class DashboardController < ApplicationController
 
   def update
     @dashboard = Dashboard.find(params[:id])
-    if @dashboard.update(doc_params)
+    if @dashboard.update(dashboard_params)
       redirect_to @dashboard
     else
       render 'edit'
@@ -39,7 +41,7 @@ class DashboardController < ApplicationController
     @dashboard = Dashboard.find(params[:id])
     @dashboard.destroy
 
-    redirect_to dashboard_path
+    redirect_to dashboards_path
   end
 
   private
@@ -48,6 +50,6 @@ class DashboardController < ApplicationController
   end
 
   def dashboard_params
-    params.require(:doc).permit(:title, :text)
+    params.require(:dashboard).permit(:title, :text, :document)
   end
 end
