@@ -1,13 +1,17 @@
-<div class="container" id="show-dashboard">
-  <h1><%= @dashboard.title %></h1>
+<br>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1><%= @dashboard.title %></h1>
+        <p><%= @dashboard.text %></p>
+          <%= link_to 'My Program', dashboards_path, class:'btn btn-primary' %>
+          <%= link_to 'Edit', edit_dashboard_path(@dashboard), class:'btn btn-primary'%>
+          <%= link_to 'Trash It', dashboard_path(@dashboard), class:'btn btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
 
-  <iframe src=<%= @dashboard.document.url %> width="500" height="500" style="border: none;"></iframe>
 
-  <p><%= @dashboard.text %></p>
-
-
-  <%= link_to 'My Program', dashboards_path %>
-  <%= link_to 'Edit', edit_dashboard_path(@dashboard)%>
-  <%= link_to 'Trash It', dashboard_path(@dashboard), method: :delete, data: { confirm: "Are you sure?" } %>
-
+        <div class="col-md-6">
+          <iframe src=<%= @dashboard.document.url %> width="450" height="450" style="border: none;"></iframe>
+        </div>
+    </div>
 </div>

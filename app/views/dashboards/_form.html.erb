@@ -1,5 +1,5 @@
 
-<%= form_for @dashboard, url: dashboards_path, html: { multipart: true } do |form| %>
+<%= form_for @dashboard, url: dashboards_path, html: { multipart: true }, :method => :POST do |form| %>
 
     <% if @dashboard.errors.any? %>
         <div id="error_explanation">
