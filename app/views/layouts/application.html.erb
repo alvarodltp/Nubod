@@ -27,7 +27,7 @@
         <div class="btn-group show">
           <% if current_user %>
               <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <a> Welcome, <%= current_user.name %></a>
+                <a> Welcome, <%= current_user.first_name %></a>
               </button>
               <div class="dropdown-menu dropdown-toggle-split">
                 <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
